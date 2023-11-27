@@ -9,6 +9,9 @@ namespace SpaceInvaderTest
 {
     public class EnemyGroup : MonoBehaviour
     {
+        //callback enemy destroyed
+        public System.Action<DataEnemy> OnEnemyDestroyed = delegate { };
+
         //serealized enemy group planner
         [SerializeField] private EnemyGroupFactory enemyGroupPlanner;
 
@@ -41,7 +44,7 @@ namespace SpaceInvaderTest
             //set enemies callbacks to recalculateworldbounds
             foreach (var enemy in enemies)
             {
-                enemy.OnDestroyed += RecalculateWorldBoundsOnEnemyDead;
+                enemy.OnDestroyed += OnEnemyDead;
             }
 
             RecalculateWorldBounds();
@@ -49,8 +52,9 @@ namespace SpaceInvaderTest
             StartCoroutine(CoMoveEnemies());
         }
 
-        void RecalculateWorldBoundsOnEnemyDead(Enemy enemy)
+        void OnEnemyDead(Enemy enemy)
         {
+            OnEnemyDestroyed(enemy.Data);
             RecalculateWorldBounds();
             RecalculateEnemyCount();
         }

@@ -16,3 +16,4 @@ MonoBehaviour:
   fullname: Small
   hp: 1
   enemyDisplay: {fileID: 6127531251856488895, guid: 3686341aa8398d04987443a44a904a6f, type: 3}
+  score: 10

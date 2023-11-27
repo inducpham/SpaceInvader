@@ -1,12 +1,22 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace SpaceInvaderTest
 {
     public class GameLoop : MonoBehaviour
     {
 
+
+
+        [Header("Gameplay Elements")]
+        //serialized normal bullet
+        [SerializeField] private DataBullet normalBullet;
+        //serialized critical bullet
+        [SerializeField] private DataBullet criticalBullet;
+
+        [Header("Gameplay Components")]
         //serialized private SpaceShip
         [SerializeField] private SpaceShip spaceShip;
         //serialized private EnemyGroup
@@ -15,11 +25,12 @@ namespace SpaceInvaderTest
         [SerializeField] private GameController gameController;
         //serialized bulletfactory
         [SerializeField] private BulletFactory bulletFactory;
+        //serialized private ScoreManager
+        [SerializeField] private ScoreManager scoreManager;
 
-        //serialized normal bullet
-        [SerializeField] private DataBullet normalBullet;
-        //serialized critical bullet
-        [SerializeField] private DataBullet criticalBullet;
+        [Header("UI Components")]
+        //serialized private UIScoring
+        [SerializeField] private UIScoring uiScoring;
 
         private void Awake()
         {
@@ -29,8 +40,12 @@ namespace SpaceInvaderTest
 
         IEnumerator Start()
         {
-            //map UI here
+            //map gameplay elements here
+            enemyGroup.OnEnemyDestroyed += scoreManager.RewardEnemyDestroy;
 
+            //map UI here
+            scoreManager.OnScoreUpdated += uiScoring.UpdateScoring;
+            enemyGroup.OnEnemyDestroyed += uiScoring.UpdateEnemyDestroyed;
 
             //start the game loop
             yield return CoGameLoop();

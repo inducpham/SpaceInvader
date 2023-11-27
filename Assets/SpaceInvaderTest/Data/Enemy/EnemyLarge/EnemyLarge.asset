@@ -16,3 +16,4 @@ MonoBehaviour:
   fullname: Large enemy
   hp: 3
   enemyDisplay: {fileID: 6127531251856488895, guid: ce939e1a00b461f4fb0e1b3f5cd5b1fd, type: 3}
+  score: 50

@@ -16,3 +16,4 @@ MonoBehaviour:
   fullname: Medium enemy
   hp: 2
   enemyDisplay: {fileID: 6127531251856488895, guid: 5c0449b6af1efd345b4236b9d7118a40, type: 3}
+  score: 20

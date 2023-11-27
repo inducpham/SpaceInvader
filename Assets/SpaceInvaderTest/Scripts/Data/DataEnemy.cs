@@ -13,10 +13,12 @@ namespace SpaceInvaderTest
         [SerializeField] private string fullname;
         [SerializeField] private int hp;
         [SerializeField] private EnemyDisplay enemyDisplay;
+        [SerializeField] private int score;
 
         public string Code => code;
         public string Fullname => fullname;
         public EnemyDisplay EnemyDisplay => enemyDisplay;
         public int Hp => hp;
+        public int Score => score;
     }
 }
