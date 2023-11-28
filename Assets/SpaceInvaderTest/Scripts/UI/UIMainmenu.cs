@@ -46,6 +46,7 @@ namespace SpaceInvaderTest
 
         void ChangeLocale(string locale)
         {
+            Model.Player.SetLocale(locale);
         }
 
     }

@@ -31,5 +31,10 @@ namespace SpaceInvaderTest
         {
             textEnemyDestroyed.text = string.Format(templateTextEnemyDestroyed, data.Fullname);
         }
+
+        public void UpdateTemplateTextEnemyDestroyed(string template)
+        {
+            templateTextEnemyDestroyed = template;
+        }
     }
 }
