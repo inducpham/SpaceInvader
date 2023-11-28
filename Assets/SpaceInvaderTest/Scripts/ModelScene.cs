@@ -6,8 +6,6 @@ namespace SpaceInvaderTest
 {
     public class ModelScene : MonoBehaviour
     {
-
-        //reference to scene title
         [SerializeField] private string sceneMainmenu;
         [SerializeField] private string sceneGameplay;
 

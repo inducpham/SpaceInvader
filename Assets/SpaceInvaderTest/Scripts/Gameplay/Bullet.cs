@@ -7,18 +7,15 @@ namespace SpaceInvaderTest
     [RequireComponent(typeof(Rigidbody2D), typeof(BoxCollider2D))]
     public class Bullet : MonoBehaviour
     {
-        //serialized speed:float
         [SerializeField] private float speed = 10f;
-        //serialized damage:int
         [SerializeField] private int damage = 1;
 
-        //reference to groupParticle and groupExplosion
         [SerializeField] private GameObject groupParticle;
         [SerializeField] private GameObject groupExplosion;
         [SerializeField] private float explosionDuration = 0.5f;
 
         private Vector2 direction = Vector2.up;    
-        private Rigidbody2D rigidbody2D;
+        private new Rigidbody2D rigidbody2D;
         private GameObject owner;
         private BoxCollider2D activeArea;
         private bool isAlive = true;
@@ -49,12 +46,6 @@ namespace SpaceInvaderTest
             rigidbody2D.velocity = direction * speed;
         }
     
-        private void OnDisable()
-        {
-            //reset the velocity of the bullet
-            rigidbody2D.velocity = Vector2.zero;
-        }
-    
         private void OnTriggerEnter2D(Collider2D collision)
         {
             if (gameObject.activeSelf == false || isAlive == false) return;
@@ -80,7 +71,6 @@ namespace SpaceInvaderTest
             groupExplosion.SetActive(true);
             this.isAlive = false;
 
-            //wait for explosion animation to finish
             StartCoroutine(CoDestroy());
         }
 

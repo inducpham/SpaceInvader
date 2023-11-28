@@ -89,7 +89,7 @@ namespace SpaceInvaderTest
 
         public void SpawnBullet(DataBullet data, GameObject owner, Vector2 direction)
         {
-            //get a random bullet from the cache
+            //get a bullet from the cache of the data bullet
             var bullet = GetBullet(data);
             bullet.Spawn(owner, direction, activeArea);
         }

@@ -6,18 +6,12 @@ namespace SpaceInvaderTest
 {
     public class GameController : MonoBehaviour
     {
-        //add setting for shooting delay
         [SerializeField] private float shootingDelay = 0.5f;
-        //add delay timer for shooting
         private float shootingDelayTimer = 0f;
 
-        //private inputDirection Vector2
         private Vector2 inputDirection;
-
-        //getter for inputDirection
         public Vector2 InputDirection => inputDirection;
 
-        //private variable isShooting and getter
         private bool isFire;
         public bool IsFire => isFire;
 

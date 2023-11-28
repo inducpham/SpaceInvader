@@ -7,21 +7,16 @@ namespace SpaceInvaderTest
     [System.Serializable]
     public class EnemyMovementSettings
     {
-        //verticalStepDistance:float and getter
         [SerializeField] private float _verticalStepDistance = 1f;
-        public float VerticalStepDistance { get { return _verticalStepDistance; } }
-
-
         [SerializeField] private float _speed = 4f;
-        public float Speed { get { return _speed; } }
-
         [SerializeField] private float _maxSpeed = 4f;
-        public float MaxSpeed { get { return _maxSpeed; } }
-
         [SerializeField] private float _dropdownDuration = 4f;
-        public float DropdownDuration { get { return _dropdownDuration; } }
-
         [SerializeField] private float _maxDropdownDuration = 4f;
+
+        public float VerticalStepDistance { get { return _verticalStepDistance; } }
+        public float Speed { get { return _speed; } }
+        public float MaxSpeed { get { return _maxSpeed; } }
+        public float DropdownDuration { get { return _dropdownDuration; } }
         public float MaxDropdownDuration { get { return _maxDropdownDuration; } }
 
         //GetSpeed based on ratio from 0 to 1
