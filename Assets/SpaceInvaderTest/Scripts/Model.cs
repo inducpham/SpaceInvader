@@ -12,6 +12,14 @@ namespace SpaceInvaderTest
         private ModelData modelData;
         public static ModelData Data => Instance.modelData;
 
+        [SerializeField]
+        private ModelPlayer modelPlayer;
+        public static ModelPlayer Player => Instance.modelPlayer;
+
+        [SerializeField]
+        private ModelScene modelScene;
+        public static ModelScene Scene => Instance.modelScene;
+
         public void Awake()
         {
             //if instance exists and it is not this: disable this and exit the function

@@ -25,6 +25,8 @@ namespace SpaceInvaderTest
             buttonLocaleBack.onClick.AddListener(HideGroupLocale);
             buttonLocaleEnglish.onClick.AddListener(() => ChangeLocale("en"));
             buttonLocaleVietnamese.onClick.AddListener(() => ChangeLocale("vi"));
+
+            groupLocale.SetActive(false);
         }
 
         void ShowGroupLocale()
@@ -39,7 +41,7 @@ namespace SpaceInvaderTest
 
         void PlayGame()
         {
-            UnityEngine.SceneManagement.SceneManager.LoadScene("Gameplay");
+            Model.Scene.LoadGameplayScene();
         }
 
         void ChangeLocale(string locale)

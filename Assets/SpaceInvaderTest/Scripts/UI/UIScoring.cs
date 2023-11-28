@@ -8,11 +8,18 @@ namespace SpaceInvaderTest
     public class UIScoring : MonoBehaviour
     {
 
+        [SerializeField] private UnityEngine.UI.Button buttonBack;
+
         [SerializeField] private UnityEngine.UI.Text textScore;
         [SerializeField] private Animator animatorTextScore;
 
         [SerializeField] private UnityEngine.UI.Text textEnemyDestroyed;
         [SerializeField] private string templateTextEnemyDestroyed;
+
+        private void Start()
+        {
+            buttonBack.onClick.AddListener(Model.Scene.LoadMainmenuScene);
+        }
 
         public void UpdateScoring(int score)
         {

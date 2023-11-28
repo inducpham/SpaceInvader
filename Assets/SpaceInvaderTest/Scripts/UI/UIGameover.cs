@@ -10,11 +10,16 @@ namespace SpaceInvaderTest
         [SerializeField] private GameObject groupDefeat;
         [SerializeField] private UnityEngine.UI.Text textScore;
         [SerializeField] private UnityEngine.UI.Button buttonReplay;
+        [SerializeField] private UnityEngine.UI.Button buttonBackToMain;
+
+
         private bool showing;
 
         private void Start()
         {
-            buttonReplay.onClick.AddListener(OnClickRestart);
+            buttonReplay.onClick.AddListener(Model.Scene.LoadGameplayScene);
+            buttonBackToMain.onClick.AddListener(Model.Scene.LoadMainmenuScene);
+
             if (showing == false) gameObject.SetActive(false);            
         }
 
@@ -40,12 +45,6 @@ namespace SpaceInvaderTest
             groupDefeat.SetActive(false);
 
             textScore.text = score.ToString();
-        }
-
-        //Reload current scene
-        public void OnClickRestart()
-        {
-            UnityEngine.SceneManagement.SceneManager.LoadScene(UnityEngine.SceneManagement.SceneManager.GetActiveScene().buildIndex);
         }
     }
 }
