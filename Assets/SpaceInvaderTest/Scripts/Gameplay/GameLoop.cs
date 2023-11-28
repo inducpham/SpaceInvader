@@ -31,6 +31,8 @@ namespace SpaceInvaderTest
         [Header("UI Components")]
         //serialized private UIScoring
         [SerializeField] private UIScoring uiScoring;
+        //serialized private UIGameover
+        [SerializeField] private UIGameover uiGameover;
 
         private void Awake()
         {
@@ -49,6 +51,11 @@ namespace SpaceInvaderTest
 
             //start the game loop
             yield return CoGameLoop();
+
+            //play the result here
+            bool victory = enemyGroup.EnemyGroupCompletedCleared;
+            if (victory) uiGameover.ShowVictory(scoreManager.PlayerScore);
+            else uiGameover.ShowDefeat(scoreManager.PlayerScore);
         }
 
         IEnumerator CoGameLoop()
@@ -87,13 +94,8 @@ namespace SpaceInvaderTest
 
 
             bool victory = enemyGroup.EnemyGroupCompletedCleared;
-            if (victory)
+            if (victory == false)
             {
-                //play victory animation
-            }
-            else 
-            {
-                //play gameover animation
                 spaceShip.PlayGameover();
             }
         }
