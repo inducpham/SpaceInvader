@@ -6,9 +6,7 @@ namespace SpaceInvaderTest
 {
     public class SpaceShipDisplay : MonoBehaviour
     {
-        //Reference to gameobject of idle animation 
         [SerializeField] private GameObject idleAnimation;
-        //Reference to gameobject of death animation
         [SerializeField] private GameObject deathAnimation;
 
         private void Start()

@@ -9,19 +9,13 @@ namespace SpaceInvaderTest
 {
     public class EnemyGroup : MonoBehaviour
     {
-        //callback enemy destroyed
         public System.Action<DataEnemy> OnEnemyDestroyed = delegate { };
 
-        //serealized enemy group planner
         [SerializeField] private EnemyGroupFactory enemyGroupPlanner;
-
-        //serialized PlayArea:RectTransform
         [SerializeField] private BoxCollider2D colliderPlayArea;
-
-        //EnemyMovementSettings
         [SerializeField] private EnemyMovementSettings enemyMovementSettings;
-
         List<Enemy> enemies = new List<Enemy>();
+
         private Bounds bounds;
         private Vector3 boundsOffset;
         private float enemyGroupSpeedRatio;
@@ -123,14 +117,12 @@ namespace SpaceInvaderTest
             return bounds.min.y < colliderPlayArea.bounds.min.y;
         }
 
-        //Generate coroutine move enemies
         IEnumerator CoMoveEnemies()
         {
             yield return null;
 
             Vector3 direction = Vector3.left;
 
-            //loop forever
             while (true)
             {
                 bool overflow_horizontally = (direction.x < 0 && EnemiesOverflowBoundsLeft()) || (direction.x > 0 && EnemiesOverflowBoundsRight());
@@ -152,7 +144,7 @@ namespace SpaceInvaderTest
                     //reverse the move direction
                     direction = -direction;
 
-
+                    //loop break condition
                     if (EnemiesOverflowBoundsBottom() || remainingEnemyCount <= 0)
                     {
                         enemyGroupCompleted = true;
@@ -162,6 +154,14 @@ namespace SpaceInvaderTest
 
                 var speed = this.enemyMovementSettings.GetSpeed(enemyGroupSpeedRatio);
                 transform.Translate(direction * speed * Time.deltaTime);
+
+
+                //loop break condition
+                if (remainingEnemyCount <= 0)
+                {
+                    enemyGroupCompleted = true;
+                    yield break;
+                }
 
                 //wait for a frame
                 yield return null;

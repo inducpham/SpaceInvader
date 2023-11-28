@@ -51,12 +51,11 @@ namespace SpaceInvaderTest
         [ContextMenu("Collect all data")]
         public void CollectAllData()
         {
-            //collectalldata shipskin
             CollectAllData(ref shipSkins);
             CollectAllData(ref bullets);
             CollectAllData(ref enemies);
 
-            //unityeditor set this object dirty
+            //set object dirty to allow prompt to save
             UnityEditor.EditorUtility.SetDirty(this);
         }
 
@@ -70,8 +69,6 @@ namespace SpaceInvaderTest
             foreach (string guid in guids)
             {
                 string path = UnityEditor.AssetDatabase.GUIDToAssetPath(guid);
-                //print the path
-                Debug.Log(path);
                 T asset = UnityEditor.AssetDatabase.LoadAssetAtPath(path, typeof(T)) as T;
                 if (asset != null)
                 {

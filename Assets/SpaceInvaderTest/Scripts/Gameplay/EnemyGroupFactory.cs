@@ -11,7 +11,6 @@ namespace SpaceInvaderTest
         //default enemy data
         [SerializeField] private DataEnemy defaultEnemyData;
         [SerializeField] private bool randomEnemyData;
-
         [SerializeField] private Enemy templateEnemy;
 
         //grid data of enemy group

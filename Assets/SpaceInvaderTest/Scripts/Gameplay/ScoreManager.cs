@@ -7,7 +7,6 @@ using UnityEngine;
 
 namespace SpaceInvaderTest
 {
-
     public class ScoreManager : MonoBehaviour
     {
 
@@ -28,5 +27,4 @@ namespace SpaceInvaderTest
             OnScoreUpdated(playerScore);
         }
     }
-
 }

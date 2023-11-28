@@ -6,14 +6,11 @@ namespace SpaceInvaderTest
 {
     public class ParallaxBackground : MonoBehaviour
     {
-        //serialized background:SpriteRenderer
         [SerializeField] private SpriteRenderer _background = null;
-
-        //serialized speed:float
         [SerializeField] private float _speed = 4f;
-
+                
         private List<SpriteRenderer> _backgrounds = new List<SpriteRenderer>();
-        //create a vector2 as gap fill offset
+        //define negative gapfilloffset to make sure there is no gap between the backgrounds
         private float _gapFillOffset = 0.1f;
 
         private void Start()

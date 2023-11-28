@@ -59,7 +59,6 @@ namespace SpaceInvaderTest
             }
         }
 
-        //CoDestroy
         IEnumerator CoDestroy()
         {
             OnDestroyed(this);
