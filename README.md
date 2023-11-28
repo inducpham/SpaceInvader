@@ -1,6 +1,6 @@
 # Space Invader Samples
 
-https://en.wikipedia.org/wiki/Space_Invaders
+[Wikipedia article](https://en.wikipedia.org/wiki/Space_Invaders)
 
 This project is an attempt to make a sample Space Invader game in less than 24 hours. Some gameplay elements are intentionally differs from the source material.
 
@@ -22,6 +22,12 @@ The game uses scriptable objects to manage different kind of gameplay elements.
 
 To modify and update the list of data, select `Assets/SpaceInvaderTest/Prefabs/Model`, open `ModelData` context menu: `Collect all data` and save the change.
 
+## Note on localization
+
+Localization is done using Unity's built in Localization package. 2 languages are supported which are English and Vietnamese.
+
+Live update in-game on locale change is supported. But due to some dynamic text template it is much more preferred to only allow changing locale on main menu.
+
 ## Demo link
 
-tba
+[itch.io](https://inducpham.itch.io/space-invader-test)
